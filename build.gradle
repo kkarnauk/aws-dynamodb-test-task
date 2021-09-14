@@ -11,5 +11,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+    implementation "org.hsqldb:hsqldb:2.6.0"
     implementation "org.apache.commons:commons-csv:1.9.0"
 }
