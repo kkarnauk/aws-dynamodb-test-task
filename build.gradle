@@ -14,4 +14,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
     implementation "org.hsqldb:hsqldb:2.6.0"
     implementation "org.apache.commons:commons-csv:1.9.0"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
 }
