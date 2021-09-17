@@ -45,6 +45,11 @@ class HSQLDatabase private constructor(private val connection: Connection) : Dat
     override fun createTable(info: Options.TableInfo, table: Table) {
         require(!tableExists(info)) { "Cannot create a table: it already exists." }
         try {
+            if (!schemaExists(info.schema)) {
+                connection.prepareStatement(
+                    "create schema ${info.schema}"
+                ).use { it.execute() }
+            }
             val columns = table.columnsNames.joinToString(", ") { "$it varchar($MAX_LENGTH)" }
             connection.prepareStatement(
                 "create table ${info.schema}.${info.name} ($columns)"
